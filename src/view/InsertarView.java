@@ -13,9 +13,10 @@ import java.awt.event.ActionEvent;
 
 public class InsertarView extends JFrame{
 
-	private JTextField cajonNombre;
+	private JTextField cajonNcolegiado;
 	private JTextField cajonApellidos;
 	private JTextField cajonDni;
+	private JTextField textField;
 
 
 	/**
@@ -33,31 +34,31 @@ public class InsertarView extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
-		cajonNombre = new JTextField();
-		cajonNombre.setBounds(191, 60, 86, 20);
-		getContentPane().add(cajonNombre);
-		cajonNombre.setColumns(10);
+		cajonNcolegiado = new JTextField();
+		cajonNcolegiado.setBounds(173, 29, 86, 20);
+		getContentPane().add(cajonNcolegiado);
+		cajonNcolegiado.setColumns(10);
 		
 		cajonApellidos = new JTextField();
-		cajonApellidos.setBounds(191, 91, 86, 20);
+		cajonApellidos.setBounds(173, 125, 86, 20);
 		getContentPane().add(cajonApellidos);
 		cajonApellidos.setColumns(10);
 		
 		cajonDni = new JTextField();
-		cajonDni.setBounds(191, 122, 86, 20);
+		cajonDni.setBounds(173, 60, 86, 20);
 		getContentPane().add(cajonDni);
 		cajonDni.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Nombre");
-		lblNewLabel.setBounds(112, 63, 46, 14);
+		JLabel lblNewLabel = new JLabel("Numero Colegiado");
+		lblNewLabel.setBounds(33, 29, 95, 14);
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("DNI");
-		lblNewLabel_1.setBounds(122, 125, 46, 14);
+		lblNewLabel_1.setBounds(33, 63, 46, 14);
 		getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Apellido_1");
-		lblNewLabel_2.setBounds(112, 94, 56, 14);
+		lblNewLabel_2.setBounds(33, 128, 56, 14);
 		getContentPane().add(lblNewLabel_2);
 		
 		JButton btnEnviar = new JButton("INSERTAR");
@@ -66,13 +67,38 @@ public class InsertarView extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnEnviar.setBounds(91, 172, 131, 23);
+		btnEnviar.setBounds(49, 212, 102, 23);
 		getContentPane().add(btnEnviar);
 		
 		JButton btnCerrar = new JButton("CERRAR");
-		btnCerrar.setBounds(228, 172, 89, 23);
+		btnCerrar.setBounds(170, 212, 89, 23);
 		getContentPane().add(btnCerrar);
 		btnCerrar.setName("cerrar");
 		
+		JLabel lblNewLabel_3 = new JLabel("Nombre");
+		lblNewLabel_3.setBounds(33, 94, 46, 14);
+		getContentPane().add(lblNewLabel_3);
+		
+		textField = new JTextField();
+		textField.setBounds(173, 91, 86, 20);
+		getContentPane().add(textField);
+		textField.setColumns(10);
+		
 	}
+	public String getNumeroColegiado() {
+        return cajonNcolegiado.getText();
+    }
+
+    public String getDni() {
+        return cajonDni.getText();
+    }
+
+    public String getApellido1() {
+        return cajonApellidos.getText();
+    }
+
+    public String getNombre() {
+        return textField.getText();
+    }
+	
 }

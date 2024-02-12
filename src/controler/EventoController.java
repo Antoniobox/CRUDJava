@@ -19,6 +19,7 @@ public class EventoController implements ActionListener {
 	EventoView vista;
 	Medicos medico;
 	public ArrayList<Medicos> lista;
+	InsertarView formularioView;
 
 	public EventoController(EventoView vista) throws SQLException {
 		super();
@@ -110,10 +111,22 @@ public class EventoController implements ActionListener {
 				
 				case"insertarRegistro":
 					try {
-						
-					} catch (Exception e2) {
-						e2.printStackTrace();
-					}
+	                    String numeroColegiado = formularioView.getNumeroColegiado();
+	                    String dni = formularioView.getDni();
+	                    String nombre = formularioView.getNombre();
+	                    String apellido1 = formularioView.getApellido1();
+	                    
+	                    
+	                    Medicos nuevoMedico = new Medicos(numeroColegiado, dni, nombre, apellido1);
+	                    
+	                    nuevoMedico.insertar();
+	                    
+	                    lista = medico.getMedicos(1);
+	                    vista.rellenarTabla(lista);
+	                    insertView.dispose();
+	                } catch (SQLException ex) {
+	                    ex.printStackTrace();
+	                }
 				break;
 			}
 		}

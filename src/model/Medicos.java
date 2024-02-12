@@ -52,6 +52,13 @@ public class Medicos {
 		
 	}
 	
+	public Medicos(String numeroColegiado, String dni, String nombre, String apellido1) {
+		this.numeroColegiado = numeroColegiado;
+		this.dni = dni;
+		this.nombre = nombre;
+		this.apellido1 = apellido1;
+	}
+	
 	public Medicos(String id, String numeroColegiado, String dni, String nombre, String apellido1){
 		this.id = id;
 		this.numeroColegiado = numeroColegiado;
@@ -91,11 +98,4 @@ public class Medicos {
 		rs.insertRow();
 		rs.moveToCurrentRow();
 	}
-	
-	
-	
-	
-	
-	
-	
 }
