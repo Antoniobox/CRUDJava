@@ -46,10 +46,6 @@ public class Medicos {
 	}
 	
 	
-	
-	
-	
-	
 	//Constructor
 	
 	public Medicos() {
@@ -86,6 +82,15 @@ public class Medicos {
 		return medicos;
 	}
 	
+	public void insertar() throws SQLException {
+		rs.moveToInsertRow();
+		rs.updateString("numero_colegiado", numeroColegiado);
+		rs.updateString("dni", dni);
+		rs.updateString("nombre", nombre);
+		rs.updateString("apellido_1", apellido1);
+		rs.insertRow();
+		rs.moveToCurrentRow();
+	}
 	
 	
 	

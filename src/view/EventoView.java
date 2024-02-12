@@ -88,7 +88,6 @@ public class EventoView extends JFrame {
 		panelBajo.setPreferredSize(new Dimension(100,50));
 		
 		
-		
 		borderLayout.setPreferredSize(new Dimension(1000, 1000));
 		panelCentral.setBackground(new Color(192, 192, 192));
 		panelCentral.setLayout(new BorderLayout());
@@ -100,15 +99,13 @@ public class EventoView extends JFrame {
 		setContentPane(borderLayout);
 		
 		
-		
 		JTextArea textArea_1 = new JTextArea();
 		borderLayout.setLayout(new BorderLayout(0, 0));
 		borderLayout.add(panelTop, BorderLayout.NORTH);
 		
-		JLabel textoHeader = new JLabel();
+		
 		ImageIcon icono = new ImageIcon("C:\\Users\\Lorenzo\\Downloads\\hospital.png");
-		textoHeader.setBackground(new Color(192, 192, 192));
-		textoHeader.setFont(new Font("Arial", Font.BOLD, 25));
+		
 		
 		label.setIcon(icono);
         // Añadir el JLabel en la región BorderLayout.CENTER del frame
@@ -116,15 +113,20 @@ public class EventoView extends JFrame {
         // Hacer visible el 
         panelTop.setVisible(true);
 		
+		JLabel textoHeader = new JLabel();
+		textoHeader.setBackground(new Color(192, 192, 192));
+		textoHeader.setFont(new Font("Arial", Font.BOLD, 25));
 		textoHeader.setText("CRUD");
 		textoHeader.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panelTop.add(textoHeader, BorderLayout.EAST);
+
+
 		
 		
 		borderLayout.add(panelBajo, BorderLayout.SOUTH);
 		panelBajo.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		//Instancias de los botones
+		//Instancias de los botones paginador
 		JButton btnPrimero = new JButton("<<");
 		JButton btnAtras = new JButton("<");
 		JButton btnBuscar = new JButton("Ir");
@@ -137,6 +139,15 @@ public class EventoView extends JFrame {
 		btnBuscar.setName("botonIr");
 		btnDelante.setName("delante");
 		btnUltimo.setName("ultimo");
+
+		//Instancias de botones de CRUD
+		JButton btnInsertar = new JButton("INSERTAR");
+		JButton btnEliminar = new JButton("ELIMINAR");
+		JButton btnModificar = new JButton("MODIFICAR");
+
+		btnInsertar.setName("insertar");
+		btnModificar.setName("modificar");
+		btnEliminar.setName("eliminar");
 		
 		
 		cuadroPagina = new JTextField();
@@ -152,6 +163,10 @@ public class EventoView extends JFrame {
 		btnAtras.addActionListener(controlador);
 		btnDelante.addActionListener(controlador);
 		btnUltimo.addActionListener(controlador);
+
+		btnModificar.addActionListener(controlador);
+		btnInsertar.addActionListener(controlador);
+		btnEliminar.addActionListener(controlador);
 		
 		panelBajo.add(btnPrimero);
 		panelBajo.add(btnAtras);
@@ -159,6 +174,10 @@ public class EventoView extends JFrame {
 		panelBajo.add(btnBuscar);
 		panelBajo.add(btnDelante);
 		panelBajo.add(btnUltimo);
+
+		panelBajo.add(btnInsertar);
+		panelBajo.add(btnModificar);
+		panelBajo.add(btnEliminar);
 		
 		
 		
@@ -168,16 +187,9 @@ public class EventoView extends JFrame {
 		
 		
 		borderLayout.add(panelCentral, BorderLayout.CENTER);
-		/*
-		String medicosString = "";
-		String medicosInt = "";
-		for(Medicos mc : medicos) {
-			medicosString+=mc.getId()+"\n";
-			medicosString+=mc.getNombre()+"\n";
-		}
-		*/
 		
 	}
+	
 	
 	public void rellenarTabla(ArrayList<Medicos> lista) {
 		

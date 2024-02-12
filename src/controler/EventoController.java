@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 
 import model.Medicos;
 import view.EventoView;
+import view.InsertarView;
 
 public class EventoController implements ActionListener {
 	
@@ -26,7 +27,7 @@ public class EventoController implements ActionListener {
 		lista = new ArrayList<Medicos>();
 		lista = medico.getMedicos(1);
 		vista.rellenarTabla(lista);
-		
+
 	}
 
 	@Override
@@ -35,6 +36,7 @@ public class EventoController implements ActionListener {
 		int numero = Integer.parseInt(textoObtenido);
 		
 		JButton boton = (JButton) e.getSource();
+		InsertarView insertView = new InsertarView();
 		
 		if(numero >= 1) {
 		
@@ -44,7 +46,6 @@ public class EventoController implements ActionListener {
 						lista = medico.getMedicos(numero);
 						vista.rellenarTabla(lista);
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 					vista.getCuadroPagina().setText(numero + "");
@@ -55,7 +56,6 @@ public class EventoController implements ActionListener {
 						lista = medico.getMedicos(numero);
 						vista.rellenarTabla(lista);
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 					vista.getCuadroPagina().setText(numero + "");
@@ -66,7 +66,6 @@ public class EventoController implements ActionListener {
 						lista = medico.getMedicos(numero);
 						vista.rellenarTabla(lista);
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 					vista.getCuadroPagina().setText(numero + "");
@@ -80,7 +79,6 @@ public class EventoController implements ActionListener {
 							vista.rellenarTabla(lista);
 						}
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 					vista.getCuadroPagina().setText(numero + "");
@@ -91,11 +89,33 @@ public class EventoController implements ActionListener {
 						lista = medico.getMedicos(numero);
 						vista.rellenarTabla(lista);
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 					break;
+				case "insertar":
+					try {
+						insertView.setVisible(true);
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+				break;
+		
+				case "cerrar":
+						try {
+							insertView.dispose();;
+						} catch (Exception e2) {
+							e2.printStackTrace();
+						}
+				break;
+				
+				case"insertarRegistro":
+					try {
+						
+					} catch (Exception e2) {
+						e2.printStackTrace();
+					}
+				break;
 			}
-}
 		}
+	}
 }
