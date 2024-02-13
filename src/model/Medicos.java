@@ -10,7 +10,6 @@ public class Medicos {
 	//Atributos
 	
 	private String id;
-	private String numeroColegiado;
 	private String dni;
 	private String nombre;
 	private String apellido1;
@@ -37,9 +36,6 @@ public class Medicos {
 		return dni;
 	}
 	
-	public String getNumColeg() {
-		return numeroColegiado;
-	}
 	
 	public String getApellido1() {
 		return apellido1;
@@ -52,16 +48,14 @@ public class Medicos {
 		
 	}
 	
-	public Medicos(String numeroColegiado, String dni, String nombre, String apellido1) {
-		this.numeroColegiado = numeroColegiado;
+	public Medicos(String dni, String nombre, String apellido1) {
 		this.dni = dni;
 		this.nombre = nombre;
 		this.apellido1 = apellido1;
 	}
 	
-	public Medicos(String id, String numeroColegiado, String dni, String nombre, String apellido1){
+	public Medicos(String id,String dni, String nombre , String apellido1){
 		this.id = id;
-		this.numeroColegiado = numeroColegiado;
 		this.dni = dni;
 		this.nombre = nombre;
 		this.apellido1 = apellido1;
@@ -80,7 +74,7 @@ public class Medicos {
 			//rs.beforeFirst();
 			while(rs.next() && contador < registros) {
 				contador ++;
-				medicos.add(new Medicos(rs.getString("id"), rs.getString("numero_colegiado"), rs.getString("dni"),rs.getString("nombre"),rs.getString("apellido1")));
+				medicos.add(new Medicos(rs.getString("id"), rs.getString("dni"),rs.getString("nombre"),rs.getString("apellido1")));
 			}
 			
 		}catch(Exception e) {
@@ -91,7 +85,6 @@ public class Medicos {
 	
 	public void insertar() throws SQLException {
 		rs.moveToInsertRow();
-		rs.updateString("numero_colegiado", numeroColegiado);
 		rs.updateString("dni", dni);
 		rs.updateString("nombre", nombre);
 		rs.updateString("apellido_1", apellido1);

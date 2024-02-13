@@ -193,14 +193,14 @@ public class EventoView extends JFrame {
 	
 	public void rellenarTabla(ArrayList<Medicos> lista) {
 		
-		String[] cabeceras = {"ID","Numero colegiado","DNI","Nombre", "Apellido1"};
+		String[] cabeceras = {"ID","DNI","Nombre", "Apellido1"};
 		
 		DefaultTableModel modelo = new DefaultTableModel(cabeceras, 0);
 		
 		//ArrayList<Medicos> listaMedicos = lista;
 		
 		for(Medicos m : lista) {
-			Object[] datosTabla = new Object[] {m.getId(), m.getNumColeg(), m.getDNI(), m.getNombre(), m.getApellido1()};
+			Object[] datosTabla = new Object[] {m.getId(), m.getDNI(), m.getNombre(), m.getApellido1()};
 			modelo.addRow(datosTabla);
 		}
 		table = new JTable(modelo);

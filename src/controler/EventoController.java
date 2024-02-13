@@ -111,13 +111,12 @@ public class EventoController implements ActionListener {
 				
 				case"insertarRegistro":
 					try {
-	                    String numeroColegiado = formularioView.getNumeroColegiado();
 	                    String dni = formularioView.getDni();
 	                    String nombre = formularioView.getNombre();
 	                    String apellido1 = formularioView.getApellido1();
 	                    
 	                    
-	                    Medicos nuevoMedico = new Medicos(numeroColegiado, dni, nombre, apellido1);
+	                    Medicos nuevoMedico = new Medicos(dni, nombre, apellido1);
 	                    
 	                    nuevoMedico.insertar();
 	                    

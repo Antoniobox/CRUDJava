@@ -12,8 +12,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class InsertarView extends JFrame{
-
-	private JTextField cajonNcolegiado;
 	private JTextField cajonApellidos;
 	private JTextField cajonDni;
 	private JTextField textField;
@@ -34,11 +32,6 @@ public class InsertarView extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
-		cajonNcolegiado = new JTextField();
-		cajonNcolegiado.setBounds(173, 29, 86, 20);
-		getContentPane().add(cajonNcolegiado);
-		cajonNcolegiado.setColumns(10);
-		
 		cajonApellidos = new JTextField();
 		cajonApellidos.setBounds(173, 125, 86, 20);
 		getContentPane().add(cajonApellidos);
@@ -49,9 +42,6 @@ public class InsertarView extends JFrame{
 		getContentPane().add(cajonDni);
 		cajonDni.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Numero Colegiado");
-		lblNewLabel.setBounds(33, 29, 95, 14);
-		getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("DNI");
 		lblNewLabel_1.setBounds(33, 63, 46, 14);
@@ -85,9 +75,6 @@ public class InsertarView extends JFrame{
 		textField.setColumns(10);
 		
 	}
-	public String getNumeroColegiado() {
-        return cajonNcolegiado.getText();
-    }
 
     public String getDni() {
         return cajonDni.getText();
