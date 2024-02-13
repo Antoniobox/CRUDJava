@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import java.awt.FlowLayout;
 import java.awt.BorderLayout;
 import javax.swing.JTextField;
+
+import controler.EventoController;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -15,6 +18,7 @@ public class InsertarView extends JFrame{
 	private JTextField cajonApellidos;
 	private JTextField cajonDni;
 	private JTextField textField;
+	private EventoController controlador;
 
 
 	/**
@@ -28,6 +32,8 @@ public class InsertarView extends JFrame{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
+		controlador = EventoView.getControlador();
 		setBounds(100, 100, 450, 300);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
@@ -53,17 +59,15 @@ public class InsertarView extends JFrame{
 		
 		JButton btnEnviar = new JButton("INSERTAR");
 		btnEnviar.setName("insertarRegistro");
-		btnEnviar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnEnviar.setBounds(49, 212, 102, 23);
 		getContentPane().add(btnEnviar);
+		btnEnviar.addActionListener(controlador);
 		
 		JButton btnCerrar = new JButton("CERRAR");
 		btnCerrar.setBounds(170, 212, 89, 23);
 		getContentPane().add(btnCerrar);
 		btnCerrar.setName("cerrar");
+		btnCerrar.addActionListener(controlador);
 		
 		JLabel lblNewLabel_3 = new JLabel("Nombre");
 		lblNewLabel_3.setBounds(33, 94, 46, 14);
@@ -74,7 +78,9 @@ public class InsertarView extends JFrame{
 		getContentPane().add(textField);
 		textField.setColumns(10);
 		
+		
 	}
+	
 
     public String getDni() {
         return cajonDni.getText();

@@ -36,7 +36,6 @@ public class Medicos {
 		return dni;
 	}
 	
-	
 	public String getApellido1() {
 		return apellido1;
 	}
@@ -87,7 +86,7 @@ public class Medicos {
 		rs.moveToInsertRow();
 		rs.updateString("dni", dni);
 		rs.updateString("nombre", nombre);
-		rs.updateString("apellido_1", apellido1);
+		rs.updateString("apellido1", apellido1);
 		rs.insertRow();
 		rs.moveToCurrentRow();
 	}

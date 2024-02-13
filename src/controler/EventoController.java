@@ -19,7 +19,7 @@ public class EventoController implements ActionListener {
 	EventoView vista;
 	Medicos medico;
 	public ArrayList<Medicos> lista;
-	InsertarView formularioView;
+	InsertarView insertView;
 
 	public EventoController(EventoView vista) throws SQLException {
 		super();
@@ -28,6 +28,7 @@ public class EventoController implements ActionListener {
 		lista = new ArrayList<Medicos>();
 		lista = medico.getMedicos(1);
 		vista.rellenarTabla(lista);
+		insertView = new InsertarView();
 
 	}
 
@@ -37,7 +38,6 @@ public class EventoController implements ActionListener {
 		int numero = Integer.parseInt(textoObtenido);
 		
 		JButton boton = (JButton) e.getSource();
-		InsertarView insertView = new InsertarView();
 		
 		if(numero >= 1) {
 		
@@ -95,6 +95,7 @@ public class EventoController implements ActionListener {
 					break;
 				case "insertar":
 					try {
+						System.out.println("DNI: " + insertView.getDni());
 						insertView.setVisible(true);
 					} catch (Exception e1) {
 						e1.printStackTrace();
@@ -103,18 +104,18 @@ public class EventoController implements ActionListener {
 		
 				case "cerrar":
 						try {
-							insertView.dispose();;
+							insertView.setVisible(false);
+							//System.out.println("Muertos");
 						} catch (Exception e2) {
 							e2.printStackTrace();
 						}
 				break;
 				
-				case"insertarRegistro":
+				case "insertarRegistro":
 					try {
-	                    String dni = formularioView.getDni();
-	                    String nombre = formularioView.getNombre();
-	                    String apellido1 = formularioView.getApellido1();
-	                    
+	                    String dni = insertView.getDni();
+	                    String nombre = insertView.getNombre();
+	                    String apellido1 = insertView.getApellido1();
 	                    
 	                    Medicos nuevoMedico = new Medicos(dni, nombre, apellido1);
 	                    
@@ -122,8 +123,10 @@ public class EventoController implements ActionListener {
 	                    
 	                    lista = medico.getMedicos(1);
 	                    vista.rellenarTabla(lista);
-	                    insertView.dispose();
-	                } catch (SQLException ex) {
+	                    
+	                    
+	                    //insertView.dispose();
+	                } catch (Exception ex) {
 	                    ex.printStackTrace();
 	                }
 				break;

@@ -42,6 +42,7 @@ public class EventoView extends JFrame {
 	private JTextField cuadroPagina;
 	private JPanel panelCentral;
 	private JScrollPane scrollPane;
+	private static EventoController controlador;
 
 	
 	public static void main(String[] args) throws SQLException {
@@ -155,7 +156,7 @@ public class EventoView extends JFrame {
 		cuadroPagina.setColumns(10);
 		cuadroPagina.setText("1");
 		
-		EventoController controlador =  new EventoController(this);
+		controlador = new EventoController(this);
 		
 		
 		btnBuscar.addActionListener(controlador);
@@ -210,6 +211,10 @@ public class EventoView extends JFrame {
 	
 	public JTextField getCuadroPagina() {
 		return this.cuadroPagina;
+	}
+	
+	public static EventoController getControlador() {
+		return controlador;
 	}
 	
 	
