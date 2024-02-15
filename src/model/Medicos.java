@@ -21,7 +21,8 @@ public class Medicos {
 		try {
 			rs = ConexionSingleton.getConexion().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE).executeQuery("select * from medicos");
 		}catch(Exception e) {
-			rs = null;
+			//La aplicacion no debe de continuar si no se ha establecido la conexion con la base de datos
+			System.exit(1);
 		}
 	}
 	
